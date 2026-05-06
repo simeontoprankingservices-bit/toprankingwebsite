@@ -1,0 +1,198 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .lp { font-family: 'Inter', system-ui, sans-serif; background: #080C18; color: #fff; border-radius: 16px; overflow: hidden; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 28px; border-bottom: 0.5px solid rgba(0,174,239,0.2); background: #080C18; }
+  .logo { font-size: 13px; font-weight: 700; color: #fff; }
+  .logo span { color: #00AEEF; }
+  .nav-btn { background: #00AEEF; color: #fff; font-size: 12px; font-weight: 700; padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+
+  .hero { padding: 52px 28px 44px; text-align: center; border-bottom: 0.5px solid rgba(255,255,255,0.06); }
+  .badge { display: inline-block; background: rgba(0,174,239,0.1); border: 0.5px solid rgba(0,174,239,0.3); color: #00AEEF; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; margin-bottom: 22px; }
+  .hero-h1 { font-size: 34px; font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 6px; }
+  .hero-h1 .blue { color: #00AEEF; }
+  .hero-sub { font-size: 15px; color: #94A3B8; line-height: 1.65; max-width: 400px; margin: 16px auto 32px; }
+  .wa-btn { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #fff; font-size: 15px; font-weight: 700; padding: 15px 32px; border-radius: 10px; border: none; cursor: pointer; text-decoration: none; }
+  .wa-btn-sub { font-size: 11px; color: #64748B; margin-top: 10px; }
+
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 0.5px solid rgba(255,255,255,0.06); }
+  .stat-cell { padding: 20px 16px; text-align: center; border-right: 0.5px solid rgba(255,255,255,0.06); }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num { font-size: 24px; font-weight: 800; color: #00AEEF; }
+  .stat-lbl { font-size: 10px; color: #64748B; margin-top: 3px; letter-spacing: 0.03em; line-height: 1.4; }
+
+  .section { padding: 44px 28px; border-bottom: 0.5px solid rgba(255,255,255,0.06); }
+  .sec-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #00AEEF; margin-bottom: 10px; }
+  .sec-h2 { font-size: 22px; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 14px; }
+  .sec-p { font-size: 14px; color: #94A3B8; line-height: 1.7; margin-bottom: 0; }
+
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 24px; }
+  .pain-card { background: rgba(255,255,255,0.03); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 16px; }
+  .pain-icon { font-size: 20px; color: #EF4444; margin-bottom: 10px; }
+  .pain-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .pain-desc { font-size: 12px; color: #64748B; line-height: 1.55; }
+
+  .steps { margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { width: 32px; height: 32px; border-radius: 50%; background: #00AEEF; color: #fff; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-body {}
+  .step-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+  .step-desc { font-size: 13px; color: #64748B; line-height: 1.55; }
+
+  .objections { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .obj { display: flex; gap: 12px; align-items: flex-start; background: rgba(255,255,255,0.03); border: 0.5px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px; }
+  .obj-icon { font-size: 18px; color: #00AEEF; flex-shrink: 0; margin-top: 1px; }
+  .obj-q { font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .obj-a { font-size: 12px; color: #64748B; line-height: 1.55; }
+
+  .final-cta { padding: 48px 28px; text-align: center; }
+  .final-h { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 10px; line-height: 1.2; }
+  .final-h .blue { color: #00AEEF; }
+  .final-sub { font-size: 13px; color: #64748B; margin-bottom: 28px; line-height: 1.6; }
+  .offer-box { background: rgba(0,174,239,0.06); border: 0.5px solid rgba(0,174,239,0.25); border-radius: 12px; padding: 20px; max-width: 380px; margin: 0 auto 28px; }
+  .offer-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #00AEEF; margin-bottom: 12px; }
+  .offer-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .offer-items li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #CBD5E1; }
+  .check { color: #22C55E; font-size: 15px; }
+  .footer-bar { padding: 16px 28px; border-top: 0.5px solid rgba(255,255,255,0.06); text-align: center; }
+  .footer-bar p { font-size: 11px; color: #334155; }
+</style>
+
+<div class="lp">
+
+  <nav class="nav">
+    <div class="logo">Simeon <span>Top Ranking</span> Services</div>
+    <button class="nav-btn" onclick="window.open('https://wa.me/27825571970?text=Hi%20Simeon%2C%20I%20want%20a%20free%20SEO%20strategy%20session','_blank')">
+      <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Book free call
+    </button>
+  </nav>
+
+  <div class="hero">
+    <div class="badge">Local SEO · South Africa</div>
+    <div class="hero-h1">If you're not in Google's top 3 —</div>
+    <div class="hero-h1"><span class="blue">your competitors are getting your calls</span></div>
+    <p class="hero-sub">Every day you're not ranking, a customer who searched for your service calls someone else. We fix that — for local businesses and tradespeople across South Africa.</p>
+    <a class="wa-btn" href="https://wa.me/27825571970?text=Hi%20Simeon%2C%20I%20want%20a%20free%20SEO%20strategy%20session" target="_blank">
+      <i class="ti ti-brand-whatsapp" style="font-size:20px" aria-hidden="true"></i>
+      Get my free strategy session
+    </a>
+    <div class="wa-btn-sub">No cost. No commitment. Takes 60 seconds to start.</div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-cell">
+      <div class="stat-num">Top 3</div>
+      <div class="stat-lbl">Where 75% of all clicks go</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">90 days</div>
+      <div class="stat-lbl">Typical time to first-page results</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">Free</div>
+      <div class="stat-lbl">Your strategy session — no strings</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">The problem</div>
+    <div class="sec-h2">Your phone should be ringing more than it is</div>
+    <p class="sec-p">You do great work. But if Google doesn't show you when someone nearby searches for what you offer, that work never gets seen.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon"><i class="ti ti-search-off" aria-hidden="true"></i></div>
+        <div class="pain-title">Invisible on Google</div>
+        <div class="pain-desc">Customers search, don't find you, and call your competitor instead.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon"><i class="ti ti-phone-off" aria-hidden="true"></i></div>
+        <div class="pain-title">Calls going to rivals</div>
+        <div class="pain-desc">Every day you're not in the top 3 is revenue walking out the door.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon"><i class="ti ti-chart-bar-off" aria-hidden="true"></i></div>
+        <div class="pain-title">Wasting money on ads</div>
+        <div class="pain-desc">Paid ads stop the moment you stop paying. SEO keeps working 24/7.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">How it works</div>
+    <div class="sec-h2">Three steps to owning your area on Google</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Book your free strategy session</div>
+          <div class="step-desc">WhatsApp us in 60 seconds. We'll ask a few questions about your business and your current Google ranking.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">We audit your online presence</div>
+          <div class="step-desc">We show you exactly why competitors are outranking you and what it would take to flip that — at no charge.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">We get you to the top</div>
+          <div class="step-desc">If we're a fit, we handle everything — Google Business Profile, local citations, reviews strategy, and on-page SEO.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Common questions</div>
+    <div class="sec-h2">Answers before you reach out</div>
+    <div class="objections">
+      <div class="obj">
+        <div class="obj-icon"><i class="ti ti-question-mark" aria-hidden="true"></i></div>
+        <div>
+          <div class="obj-q">I've tried SEO before and it didn't work.</div>
+          <div class="obj-a">Most "SEO" sold to small businesses is generic and slow. We focus only on local search — the map pack, Google Business Profile, and your suburb — which is where your customers actually look.</div>
+        </div>
+      </div>
+      <div class="obj">
+        <div class="obj-icon"><i class="ti ti-question-mark" aria-hidden="true"></i></div>
+        <div>
+          <div class="obj-q">How long before I see results?</div>
+          <div class="obj-a">Most clients see meaningful movement within 60–90 days. Local SEO is faster than national campaigns because the competition is smaller and we know exactly what levers to pull.</div>
+        </div>
+      </div>
+      <div class="obj">
+        <div class="obj-icon"><i class="ti ti-question-mark" aria-hidden="true"></i></div>
+        <div>
+          <div class="obj-q">What does it cost?</div>
+          <div class="obj-a">We tailor packages to each business. The strategy session is completely free — we'll discuss options only if you want to after the call. No pressure, no hard sell.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="final-cta">
+    <div class="final-h">Stop losing calls to competitors.<br><span class="blue">Let's fix your ranking.</span></div>
+    <p class="final-sub">Book a free strategy session via WhatsApp. We'll show you exactly where you stand on Google and what it takes to reach the top 3 — at no cost.</p>
+    <div class="offer-box">
+      <div class="offer-title">Your free session includes</div>
+      <ul class="offer-items">
+        <li><span class="check"><i class="ti ti-check" aria-hidden="true"></i></span> Your current Google ranking audit</li>
+        <li><span class="check"><i class="ti ti-check" aria-hidden="true"></i></span> Competitor gap analysis</li>
+        <li><span class="check"><i class="ti ti-check" aria-hidden="true"></i></span> A clear action plan to reach top 3</li>
+        <li><span class="check"><i class="ti ti-check" aria-hidden="true"></i></span> Zero obligation to sign up</li>
+      </ul>
+    </div>
+    <a class="wa-btn" href="https://wa.me/27825571970?text=Hi%20Simeon%2C%20I%20want%20a%20free%20SEO%20strategy%20session" target="_blank">
+      <i class="ti ti-brand-whatsapp" style="font-size:20px" aria-hidden="true"></i>
+      WhatsApp us now — 082 557 1970
+    </a>
+  </div>
+
+  <div class="footer-bar">
+    <p>Simeon Top Ranking Services · Johannesburg, South Africa · 082 557 1970</p>
+  </div>
+
+</div>
